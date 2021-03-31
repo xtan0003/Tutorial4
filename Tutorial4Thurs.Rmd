@@ -1,8 +1,9 @@
 ---
-Title: learning to reference figures, tables, and sections
+Title: "learning to reference figures, tables, and sections"
 author: "Xinyi Tang"
 date: "`r Sys.Date()`"
-Output: bookdown::html_document2
+Output: 
+    bookdown::html_document2
 keep_md: yes
 ---
 
