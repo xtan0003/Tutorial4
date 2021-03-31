@@ -8,25 +8,38 @@ keep_md: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.align = "center")
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+library(tidyverse)
 ```
 
-## Including Plots
+# Learning to reference figures
 
-You can also embed plots, for example:
+```{r Figref, fig.cap="This is random noise"}
+x = seq(1:100)
+y =rnorm(100)
+y
+x
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+dat = data.frame(x, y)
+
+ggplot(dat, aes(x = x, y = y)) +
+  geom_line()
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+In Figure \@ref(fig:Figref), we plot x versus y as line plot.
+
+# Learning to reference tables
+
+```{r Tabref}
+knitr::kable(head(dat, n=5), caption = "This is the first 5 rows")
+
+```
+
+In table \@ref(tab:Tabref), we show the first 5 rows of the data
+
+# Conclusion
+
+In section \@ref(fig:Figref), we learn how to reference figures, While in section \@ref(tab:Tabref), we learn how to reference tables.
